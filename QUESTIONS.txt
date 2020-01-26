@@ -1,0 +1,13 @@
+1. If the number of npm packages installed in the Material Design Components
+for Web Codelabs differs from the tutorial, is it a problem?
+
+1. To make module (package?) dependencies work, I removed the package-lock.json
+files and ran 'npm install'. Is this acceptable?
+
+1. When I get 'Found 260 vulnerabilities (2 low, 2 moderate, 256 high)
+run `npm audit fix` to fix them, or `npm audit` for details', should I
+first fix the problem? Should I run 'npm audit fix'? Is it safe? Will
+it break things?
+
+1. How can I use the components in the tutorial on my Apache2 server instead
+of the npm server?

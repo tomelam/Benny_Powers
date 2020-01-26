@@ -1,0 +1,5 @@
+Simply remove the package-lock.json file in an mdc-* directory
+and run 'npm install' in the 'complete' directory, then 'npm start'.
+
+I was able to get going by deleting the files removing the package-lock.json
+files and running 'npm install'. Is this acceptable?
