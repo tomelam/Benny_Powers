@@ -15,7 +15,10 @@
    I want to *learn* what methods and event handlers to write so that a web app
    authored *on the fly* in BiwaScheme-in-the-browser will have all normal but
    basic capabilities. By *on the fly* I mean a whole web app will be created
-   by BiwaScheme. The macro
+   interactively by a person at BiwaScheme's console in the browser,
+   for possible later "compilation" into HTML+JavaScript+CSS and posting
+   to the web server to be served as a regular web page or web app.
+   The macro
    [define-event-handler](https://raw.githubusercontent.com/Mashweb/seq_webapp_biwascheme/master/mini-framework.scm)
    is my interface to
    [BiwaScheme's interface to JavaScript events](https://www.biwascheme.org/doc/reference.html#js-interface).
