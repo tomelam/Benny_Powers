@@ -52,10 +52,10 @@
 
 1. I believe that most elements, whether standard or custom, can take care of
    many or most of their own responses to events
-   (see [MDN's event reference](https://developer.mozilla.org/en-US/docs/Web/Events#Standard_events )
    in the sense that no JavaScript is necessary to respond to such events
-   as focus, blur, pagehide, animationstart, etc. I want to *learn* whether
-   I am correct or not about this assumption.
+   as focus, blur, pagehide, animationstart, etc.
+   See [MDN's event reference](https://developer.mozilla.org/en-US/docs/Web/Events#Standard_events .
+   I want to *learn* whether I am correct or not about this assumption.
 
 1. The types of data binding used by standard HTML elements should work with
    the web components: methods like *submit*, *keydown*, *keyup*, *keypress*,
