@@ -9,7 +9,7 @@
    minutes beyond that will be billed on a prorated basis, not in 15-minute
    increments.
 
-1. I am writing a set of BiwaScheme](https://www.biwascheme.org/) functions
+1. I am writing a set of [BiwaScheme](https://www.biwascheme.org/) functions
    and macros to add web components to a page using
    [BiwaScheme's foreign function interface](https://www.biwascheme.org/doc/reference.html#js-interface).
    I want to *learn* what methods and event handlers to write so that a web app
@@ -52,14 +52,14 @@
 
 1. I believe that most elements, whether standard or custom, can take care of
    many or most of their own responses to events
-   (see MDN's event reference](https://developer.mozilla.org/en-US/docs/Web/Events#Standard_events)
+   (see [MDN's event reference](https://developer.mozilla.org/en-US/docs/Web/Events#Standard_events)
    in the sense that no JavaScript is necessary to respond to such events
    as focus, blur, pagehide, animationstart, etc. I want to *learn* whether
    I am correct or not about this assumption.
 
 1. The types of data binding used by standard HTML elements should work with
    the web components: methods like *submit*, *keydown*, *keyup*, *keypress*,
-   *click*, "mousedown", "mouseup", "mouseenter", "mouseleave", "mousemove",
-   "mouseover", "touchend", "touchmove", "touchstart", etc.
+   *click*, *mousedown*, *mouseup*, *mouseenter*, *mouseleave*, *mousemove*,
+   *mouseover*, *touchend*, *touchmove*, *touchstart*, etc.
    Basically, at a minimum boring web apps should be supported.
    I want to *learn* the standard APIs necessary to author any boring web app. 
