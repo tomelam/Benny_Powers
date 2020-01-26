@@ -35,7 +35,7 @@
    work with 99% of web agents (mainly browsers) that were up to date as far
    back as a few years ago (say, 3 to 5 years). I'm not sure whether I should
    want the components to support the HTML template standard.
-   I don't mind using a polyfill if it is small and fast (mobile-friendly).
+   I don't mind using a polyfill if it is small and fast (slow-mobile-friendly).
 
    I want to avoid complications like BEM (Block Element Modifier) if such
    complications are unnecessary due to the evolution of the standards and the
@@ -52,7 +52,7 @@
 
 1. I believe that most elements, whether standard or custom, can take care of
    many or most of their own responses to events
-   (see [MDN's event reference](https://developer.mozilla.org/en-US/docs/Web/Events#Standard_events)
+   (see [MDN's event reference](https://developer.mozilla.org/en-US/docs/Web/Events#Standard_events )
    in the sense that no JavaScript is necessary to respond to such events
    as focus, blur, pagehide, animationstart, etc. I want to *learn* whether
    I am correct or not about this assumption.
