@@ -54,7 +54,7 @@
    many or most of their own responses to events
    in the sense that no JavaScript is necessary to respond to such events
    as focus, blur, pagehide, animationstart, etc.
-   See [MDN's event reference](https://developer.mozilla.org/en-US/docs/Web/Events#Standard_events .
+   See [MDN's event reference](https://developer.mozilla.org/en-US/docs/Web/Events#Standard_events).
    I want to *learn* whether I am correct or not about this assumption.
 
 1. The types of data binding used by standard HTML elements should work with
