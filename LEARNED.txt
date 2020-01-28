@@ -135,11 +135,11 @@ The numbers below refer to the numbers in README.md.
 
    --Benny's comment: The submit method is not specified to bubble, but in
    your case I think you're more likely to be using form elements than
-   web components that work with their own form. If you do use web components'
-   form elements, you should be aware of the form participation API, which
-   is still in an early phase of adoption. Your use case is likely better
-   served by custom elements that slot in their input elements as light DOM
-   children.
+   web components that wrap their own internal form element. If you do use
+   web components' form elements, you should be aware of the form participation
+   API, which is still in an early phase of adoption. Your use case is likely
+   better served by custom elements that slot in their input elements as light
+   DOM children.
 
 8. Apart from the above, prepared questions, I also asked whether I would be
    able to change the CSS and templates of web components on the fly.
