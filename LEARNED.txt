@@ -1,0 +1,149 @@
+What I Learned in my Codementor Session with Benny Powers
+-----------------------------------------------------------
+
+Our first short attempt to start a Codementor session didn't work,
+so the audio I did record was not useful. I forgot to record the successful
+session. I am doing my best here to write down the parts of the session that
+were important to my work. Some of my recollections might be wrong, but I feel
+confident that I learned enough to know the direction forward.
+
+Background and Requirements
+
+The numbers below refer to the numbers in README.md.
+
+1. There is a lot about HTTP and HTML I don't know, including probably a lot
+   of the basics. --No comment.
+
+2. I hope that our session will not take more than 30 minutes and that any
+   minutes beyond that will be billed on a prorated basis, not in 15-minute
+   increments.
+
+   --Benny's comment: Unsure, but probably prorated. (Afterwards I found out it
+   was indeed prorated.)
+
+3. I am writing a set of [BiwaScheme](https://www.biwascheme.org/) functions
+   and macros to add web components to a page using
+   [BiwaScheme's foreign function interface](https://www.biwascheme.org/doc/reference.html#js-interface).
+   I want to *learn* what methods and event handlers to write so that a web app
+   authored *on the fly* in BiwaScheme-in-the-browser will have all normal but
+   basic capabilities. By *on the fly* I mean a whole web app will be created
+   interactively by a person at BiwaScheme's console in the browser,
+   for possible later "compilation" into HTML+JavaScript+CSS and posting
+   to the web server to be served as a regular web page or web app.
+   The macro
+   [define-event-handler](https://raw.githubusercontent.com/Mashweb/seq_webapp_biwascheme/master/mini-framework.scm)
+   is my interface to
+   [BiwaScheme's interface to JavaScript events](https://www.biwascheme.org/doc/reference.html#js-interface).
+
+   By basic, I mean nonspecialized, nothing as complex as drag-and-drop or
+   multimedia (at least not yet). Perhaps going through just the programmatic
+   creation of a web component for a button would be enough for my *learning*.
+   Hopefully even a nontechnical person should be able to understand the
+   connections between the components and their actions. See
+   [Mashweb.Club](http://mashweb.club/) and
+   [my sequentially programmed web app](https://doc.mashweb.club/experiments/seq_webapp_biwascheme/). (Skip down to the Scheme code in the section
+   'Try It Now'. I think you'll be able to read the code even if you never
+   encountered Scheme before.)
+
+4. I want to use web components from a good, well-known library or catalog,
+   so I want to *learn* what libraries and catalogs would meet my needs.
+   The library or catalog should support three or four of the standards
+   that make up
+   [web components v1](https://www.webcomponents.org/introduction) and should
+   work with 99% of web agents (mainly browsers) that were up to date as far
+   back as a few years ago (say, 3 to 5 years). I'm not sure whether I should
+   want the components to support the HTML template standard.
+   I don't mind using a polyfill if it is small and fast (slow-mobile-friendly).
+
+   I want to avoid complications like BEM (Block Element Modifier) if such
+   complications are unnecessary due to the evolution of the standards and the
+   browsers. It appears that Material Components for the Web uses BEM.
+   See, for example,
+   [Button](https://material-components.github.io/material-components-web-catalog/#/component/button).
+
+   --Benny's comments: it will be easy to cover 87% of browsers in use [?]
+   by using a conditional inclusion of a polyfill. It supports even IE11,
+   except for some known, minor limitations, although I should
+   probably not support IE11 anyway, since Microsoft doesn't support it anymore.
+   BEM is sometimes used internally, but it is not accessible to me, so it
+   doesn't affect me.
+
+   Benny said Material Components for the web
+   (https://material.io/collections/developer-tutorials/#web) are not really
+   web components. I think he said something like they are mostly made of CSS.
+   He suggested Material Web Components
+   (https://github.com/material-components/material-components-web-components)
+   instead, but I think he said they are in an early stage of development.
+
+   He recommended the components at https://github.com/ing-bank/lion, saying
+   they are good for white label, customizable components.
+
+   He recommended https://vaadin.com/components, currently based on Polymer
+   library, but being migrated to LitElement, which will make them fast.
+
+   He mentioned https://github.com/SAP/ui5-webcomponents, but can't comment
+   on their quality.
+
+   He mentioned the SalesForce components, because it is a good, big collection.
+   He mentioned something about Creative Cloud. (Maybe he said they are
+   available on the Creative Cloud CDN. Note that the unpkg CDN works with any
+   package acceptable to npm.) The are called the "lightning web
+   components".
+
+   He said at first I will probably want to avoid the big hassle of a build
+   process, but recommended Rollup over Webpack for this.
+
+   For polyfills, he recommended
+   https://github.com/webcomponents/polyfills/tree/master/packages/webcomponentsjs .
+
+5. I want a simple but fully backward compatible button and other replacements
+   for standard HTML elements so that I can standardize my design system
+   and encapsulate my web components' styles. I want these replacements to be
+   usable wherever standard HTML elements are usable. They should be just as
+   nestable as standard HTML elements are. I want to *learn* which components
+   of the selected libraries and catalogs will serve these purposes.
+
+   --Benny's comment: This is possible. This web component set is specifically
+   designed to be lightweight, fast, and customizable in terms of styles:
+   https://github.com/ing-bank/lion . [?] They should work for me. [?]
+   Note that some basic CSS properties like color and font size pierce the
+   shadow DOM anyway. All custom elements are nestable, since they are just
+   HTML. 
+
+6. I believe that most elements, whether standard or custom, can take care of
+   many or most of their own responses to events
+   in the sense that no JavaScript is necessary to respond to such events
+   as focus, blur, pagehide, animationstart, etc. See MDN's event reference
+   (https://developer.mozilla.org/en-US/docs/Web/Events#Standard_events).
+   I want to *learn* whether I am correct or not about this assumption.
+
+   --Benny's comment: Basically correct, but see also
+   https://javascript.info/shadow-dom-events .
+
+7. The types of data binding used by standard HTML elements should work with
+   the web components: methods like *submit*, *keydown*, *keyup*, *keypress*,
+   *click*, *mousedown*, *mouseup*, *mouseenter*, *mouseleave*, *mousemove*,
+   *mouseover*, *touchend*, *touchmove*, *touchstart*, etc.
+   Basically, at a minimum boring web apps should be supported.
+   I want to *learn* the standard APIs necessary to author any boring web app. 
+
+   --Benny's comments: See https://javascript.info/shadow-dom-events:
+   "The idea behind shadow tree is to encapsulate internal implementation
+   details of a component... Scripts in the main document have no idea about
+   the shadow DOM internals... So, to keep the details encapsulated, the
+   browser retargets the event."
+
+   --Benny's comment: The submit method is not specified to bubble, but in
+   your case I think you're more likely to be using form elements than
+   web components that work with their own form. If you do use web components'
+   form elements, you should be aware of the form participation API, which
+   is still in an early phase of adoption. Your use case is likely better
+   served by custom elements that slot in their input elements as light DOM
+   children.
+
+8. Apart from the above, prepared questions, I also asked whether I would be
+   able to change the CSS and templates of web components on the fly.
+
+   --Benny's comment: For most web component sets, no, but for the ING set
+   already mentioned, that should be possible because it is designed to be
+   customizable.

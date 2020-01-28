@@ -1,0 +1,78 @@
+Answers to My Questions on Material Components for the Web
+----------------------------------------------------------
+
+Our first short attempt to start a Codementor session didn't work,
+so the audio I did record was not useful. I forgot to record the successful
+session. I am doing my best here to write down the parts of the session that
+were important to my work. Some of my recollections might be wrong, but I feel
+confident that I learned enough to know the direction forward.
+
+The conversation started with Material Design Components for the web
+(https://material.io/collections/developer-tutorials/#web)
+and switched to Material Design Web Components (MWC)
+(https://github.com/material-components/material-components-web-components),
+because Material Design Components for the web are not really web components,
+as noted in LEARNED.txt.
+
+1. If the number of npm packages installed in the Material Design Components
+for Web Codelabs differs from the tutorial, is it a problem?
+
+--Benny's reply: [Oops, we didn't get this answered, but judging from his
+other answers, I'd say it is probably not a problem.]
+
+2. To make module (package?) dependencies work, I removed the package-lock.json
+files and ran 'npm install'. Is this acceptable?
+
+--Benny's reply: Sometimes the package get corrupted and this is the way to
+get things to work.
+
+3. When I get 'Found 260 vulnerabilities (2 low, 2 moderate, 256 high)
+run `npm audit fix` to fix them, or `npm audit` for details', should I
+first fix the problem? Should I run 'npm audit fix'? Is it safe? Will
+it break things?
+
+--Benny's reply: Running 'npm audit fix' will fix many problems and do it
+without breaking anything. The problems it doesn't fix have to be fixed
+manually.
+
+4. How can I use the components in the tutorial on my Apache2 server instead
+of the npm server?
+
+--Benny's reply:
+Instead of 'Material Components for the web', use Material Web Components (MWC),
+https://github.com/material-components/material-components-web-components.
+[Yes, it's confusing.] It's easy to use MWC. Here's the programmatic way:
+
+// npm i -S @material/mwc-button;
+import '@material/mwc-button';
+
+document.createElement('mwc-button');
+
+--And here's the declarative way (with polyfill and setup to prevent elements
+from showing up before styles have been applied):
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+    <script>
+      WebComponents.waitFor(() => {
+        return import("https://unpkg.com/@material/mwc-button?module")
+        .then(() => {
+          document.body.removeAttribute('unresolved')
+        }));
+      });
+    </script>
+    <style>
+      body[unresolved] {
+        opacity: 0;
+        transition: opacity 0.2s ease-in;
+      }
+    </style>
+  </head>
+  <body unresolved>
+    <mwc-button>Works!</mwc-button>
+  </body>
+</html>
